@@ -57,7 +57,7 @@ public class SelectCameraDialog extends DialogFragment {
         mListView.setAdapter(myAdatpter);
         mListView.setOnItemClickListener((parent, view1, position, id) -> {
             EZCameraInfo ezCameraInfo = getCameraInfo(position);
-            if (!ezCameraInfo.isCamera()) {// 不是视频类设备|is not camera device
+            if (ezCameraInfo != null && !ezCameraInfo.isCamera()) {// 不是视频类设备|is not camera device
                 Toast.makeText(getActivity(), R.string.not_camera_device, Toast.LENGTH_SHORT).show();
                 return;
             }
@@ -119,15 +119,15 @@ public class SelectCameraDialog extends DialogFragment {
         TextView mCameraNameTV;
     }
 
-    private EZCameraInfo getCameraInfo(int position) {
-        if (mEZDeviceInfo != null && mEZDeviceInfo.getCameraInfoList() != null && mEZDeviceInfo.getCameraInfoList().size() > 0) {
-            return mEZDeviceInfo.getCameraInfoList().get(position);
-        } else if (mEZDeviceInfo != null && mEZDeviceInfo.getSubDeviceInfoList() != null && mEZDeviceInfo.getSubDeviceInfoList().size() > 0) {
-            return mEZDeviceInfo.getSubDeviceInfoList().get(position);
-        }
+        private EZCameraInfo getCameraInfo(int position) {
+            if (mEZDeviceInfo != null && mEZDeviceInfo.getCameraInfoList() != null && !mEZDeviceInfo.getCameraInfoList().isEmpty()) {
+                return mEZDeviceInfo.getCameraInfoList().get(position);
+            } else if (mEZDeviceInfo != null && mEZDeviceInfo.getSubDeviceInfoList() != null && !mEZDeviceInfo.getSubDeviceInfoList().isEmpty()) {
+                return mEZDeviceInfo.getSubDeviceInfoList().get(position);
+            }
 
-        return null;
-    }
+            return null;
+        }
 
 }
 

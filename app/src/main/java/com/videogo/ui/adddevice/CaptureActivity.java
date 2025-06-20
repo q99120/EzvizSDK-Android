@@ -110,7 +110,7 @@ public class CaptureActivity extends RootActivity implements QRCodeView.Delegate
         LogUtil.e(TAG, "scan resultString = " + resultString);
         Vibrator vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
         vibrator.vibrate(200);
-        mZXingView.startSpotDelay(500); // 延迟0.5秒后开始识别
+        mZXingView.startSpot(); // 延迟0.5秒后开始识别
 
         // 初始化数据
         String mSerialNoStr = "";

@@ -57,11 +57,11 @@ public class MainActivity extends RootActivity {
     private BroadcastReceiver mLoginResultReceiver;
     
     // JuneCheng's AppKey
-    private final static String APPKEY_JC = "fd82f9a6f0154aa2aa9284ae7af25a5b";
-    private final static String TOKEN_JC = "at.37kcsact9jqov10od2nx8l18cq6tz5mr-1vyduuz5i3-0fy11ad-4tcacekil";
+    private final static String APPKEY_JC = "cae3ac69828e4f17b664c86ddc40b833";
+    private final static String TOKEN_JC = "ra.bnzyu79s3s2y05a54d6wfktmd6vujqhf-2krxp9ehni-0r4f8t3-1oe0kmwab";
     // 开发者账号信息
-    private final static String APPKEY_DEV = "494757df87e940cfbcada208a335c3c9";
-    private final static String TOKEN_DEV = "at.5n6cu60u5xukzbhgaq6ql4qj2o08qm94-9dcnz3nnjf-1s3xvf1-9upjkd887";
+    private final static String APPKEY_DEV = "cae3ac69828e4f17b664c86ddc40b833";
+    private final static String TOKEN_DEV = "ra.bnzyu79s3s2y05a54d6wfktmd6vujqhf-2krxp9ehni-0r4f8t3-1oe0kmwab";
     private final static String DEVICE_DEV = "";
 
     /**
@@ -332,7 +332,7 @@ public class MainActivity extends RootActivity {
         if (sdkInitParams != null) {
             mAppKeyET.setText(sdkInitParams.appKey);
             try {
-                mAccessTokenET.setText(EZOpenSDK.getInstance().getEZAccessToken().getAccessToken());
+//                mAccessTokenET.setText(EZOpenSDK.getInstance().getEZAccessToken().getAccessToken());
                 mApiET.setText(sdkInitParams.openApiServer);
                 mAuthET.setText(sdkInitParams.openAuthApiServer);
                 mSpecifiedDeviceET.setText(sdkInitParams.specifiedDevice);

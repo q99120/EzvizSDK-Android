@@ -252,6 +252,7 @@ public class EZCameraListActivity extends RootActivity implements OnClickListene
             jumpToDeviceInfoInputPage();
             return;
         }
+        LogUtil.d(TAG, "deviceInfo.getCameraNum()  " + deviceInfo.getCameraNum());
         // 单通道设备，直接跳转预览页面
         if (deviceInfo.getCameraNum() == 1 && deviceInfo.getCameraInfoList() != null && deviceInfo.getCameraInfoList().size() == 1) {
             LogUtil.d(TAG, "cameralist have one camera");
@@ -517,9 +518,12 @@ public class EZCameraListActivity extends RootActivity implements OnClickListene
                         finish();
                     }
                     if (mHeaderOrFooter) {
-                        result = getOpenSDK().getDeviceList(0, 20);
+                        result = getOpenSDK().getDeviceListEx(0, 20);
+                        for (EZDeviceInfo ezDeviceInfo:result){
+                            LogUtil.e(" ezDeviceInfo  ",ezDeviceInfo.getStatus()+"");
+                        }
                     } else {
-                        result = getOpenSDK().getDeviceList((mAdapter.getCount() / 20) + (mAdapter.getCount() % 20 > 0 ? 1 : 0), 20);
+                        result = getOpenSDK().getDeviceListEx((mAdapter.getCount() / 20) + (mAdapter.getCount() % 20 > 0 ? 1 : 0), 20);
                     }
                 } else if (mLoadType == LOAD_SHARE_DEVICE) {
                     if (mHeaderOrFooter) {

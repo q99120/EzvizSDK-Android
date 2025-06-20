@@ -2121,20 +2121,7 @@ public class EZRealPlayActivity extends RootActivity implements OnClickListener,
      * 截图Action
      */
     private void onCapturePicBtnClick() {
-
         mControlDisplaySec = 0;
-//        if (!SDCardUtil.isSDCardUseable()) {
-//            // 提示SD卡不可用 | Prompt SD card is not available
-//            Utils.showToast(EZRealPlayActivity.this, R.string.remoteplayback_SDCard_disable_use);
-//            return;
-//        }
-//
-//        if (SDCardUtil.getSDCardRemainSize() < SDCardUtil.PIC_MIN_MEM_SPACE) {
-//            // 提示内存不足 | Prompt for insufficient memory
-//            Utils.showToast(EZRealPlayActivity.this, R.string.remoteplayback_capture_fail_for_memory);
-//            return;
-//        }
-
         if (mEZPlayer != null) {
             Thread thr = new Thread() {
                 @Override
